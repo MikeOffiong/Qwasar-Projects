@@ -1,0 +1,32 @@
+
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >michael offiong</div>
+  <script type="text/javascript">
+    let xAxis = 0;
+    let yAxis = 0;
+    let xSpeed = 2;
+    let ySpeed = 2;
+    let edge = 0;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    const box = document.getElementById("my_bouncing_box")
+
+    function advance() {
+        box.style.top = yAxis + "px";
+        box.style.left = xAxis + "px";
+    }
+
+    let moveBox = setInterval(() => {
+        if(xAxis + xSpeed >= width || xAxis < edge) {
+            xSpeed = -xSpeed;
+        }
+        if(yAxis + ySpeed > height || yAxis < edge) {
+            ySpeed = -ySpeed;
+        }
+        xAxis += xSpeed;
+        yAxis += ySpeed;
+        advance ();
+    }, 10);
+  </script>
+</html>
+
